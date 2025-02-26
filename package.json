@@ -1,0 +1,12 @@
+{
+  "name": "my-node-project",
+  "version": "1.0.0",
+  "description": "Building tokens",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "config.json",
+  "scripts": {
+    "test": "npx style-dictionary build"
+  }
+}
