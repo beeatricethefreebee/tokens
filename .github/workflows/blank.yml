@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: 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
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/beeatricethefreebee/tokens.git
+          git remote set-url origin https://x-access-token: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@github.com/beeatricethefreebee/tokens.git
           git add build/scss/_variables.scss
           git commit -m "Update SCSS variables"
           git push
