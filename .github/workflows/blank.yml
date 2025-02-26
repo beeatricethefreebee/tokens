@@ -44,8 +44,9 @@ jobs:
           if [ -f "build/scss/_variables.scss" ]; then
             # If the file exists, add and commit it
             git add build/scss/_variables.scss
-            git commit -m "Override SCSS variables"
-            git push
+            git commit -m "Override SCSS variables" || echo "No changes to commit"
+            # Use GITHUB_TOKEN for pushing the changes
+            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
           else
             echo "No changes to _variables.scss, skipping commit."
           fi
