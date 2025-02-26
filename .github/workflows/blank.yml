@@ -36,8 +36,16 @@ jobs:
 
       - name: Commit and push generated SCSS files
         run: |
+          # Configure git user for commits
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add build/scss/_variables.scss
-          git commit -m "Override SCSS variables"
-          git push
+
+          # Check if the _variables.scss file exists before adding it
+          if [ -f "build/scss/_variables.scss" ]; then
+            # If the file exists, add and commit it
+            git add build/scss/_variables.scss
+            git commit -m "Override SCSS variables"
+            git push
+          else
+            echo "No changes to _variables.scss, skipping commit."
+          fi
